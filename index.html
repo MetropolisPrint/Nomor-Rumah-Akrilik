@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pesan Nomor Rumah Akrilik</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .wrapper {
+      padding: 16px;
+    }
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      max-width: 520px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .deskripsi {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    select, input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    option small {
+      font-size: 11px;
+      color: #666;
+    }
+    .note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #d35400;
+      background: #fff6e5;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    .note b {
+      display: block;
+      font-size: 16px;
+      color: #c0392b;
+      margin-bottom: 6px;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      background-color: #25d366;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1ebe5d;
+    }
+    small {
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <form onsubmit="sendToWhatsApp(); return false;">
+      <h2>Pesan "Nomor Rumah Akrilik"</h2>
+      <div class="deskripsi">
+        Biasa dipasang di depan rumah sebagai identifikasi urutan bangunan dari suatu kluster, wilayah maupun perumahan. Berfungsi untuk memperjelas suatu alamat jika seseorang ingin berkunjung ke rumah Anda atau mungkin juga kurir yang hendak mengantarkan barang ke tempat Anda. Selain itu nomor rumah juga dapat mempercantik teras rumah Anda.
+      </div>
+
+      <label>Nama Anda</label>
+      <input type="text" id="nama" required>
+
+      <label>Nomor WhatsApp Anda</label>
+      <input type="tel" id="nowa" pattern="[0-9]+" required>
+
+      <label>Jenis</label>
+      <select id="jenis">
+        <option value="Model M1">Model M1 - Size 20x30 cm, 2 Lapis, Akrilik Bening 3mm, 2 Lubang Baut (Diameter 10 mm), UV Print 1 Warna</option>
+        <option value="Model M2A">Model M2A - Size 20x30 cm, 1 Lapis, Akrilik Putih 3mm + Akrilik Bening 2mm, 2 Lubang Baut (Diameter 10 mm), UV Print & Grafir Laser</option>
+        <option value="Model M2B">Model M2B - Size 20x30 cm, 2 Lapis, Akrilik Putih 3mm + Akrilik Bening 2mm, 2 Lubang Baut (Diameter 10 mm), UV Print & Grafir Laser</option>
+        <option value="Model M3G">Model M3G - Size 20x30 cm, 2 Lapis, Gravoply Emas 2mm + Akrilik Bening 2mm, 2 Lubang Baut (Diameter 10 mm), Grafir Laser</option>
+        <option value="Model M3S">Model M3S - Size 20x30 cm, 2 Lapis, Gravoply Silver 2mm + Akrilik Bening 2mm, 2 Lubang Baut (Diameter 10 mm), Grafir Laser</option>
+        <option value="Model M4">Model M4 - Size 20x30 cm, 1 Lapis, Akrilik Bening 5mm, 2 Lubang Baut (Diameter 10 mm), Grafir Laser, Lampu LED, UV Print</option>
+        <option value="Model M5">Model M5 - Size 20x30 cm, 1 Lapis, Akrilik Bening 3mm, 4 Lubang Baut (Diameter 10 mm), UV Print</option>
+      </select>
+
+      <label>Jumlah</label>
+      <input type="number" id="jumlah" required>
+
+      <label>Kapan Dibutuhkan?</label>
+      <input type="date" id="tanggal" required>
+
+      <label>Pada Jam Berapa?</label>
+      <input type="time" id="jam" required>
+
+      <label>Catatan Khusus untuk Admin Kami</label>
+      <textarea id="catatan" rows="4"></textarea>
+
+      <div class="note">
+        <b>Penting !</b>
+        Estimasi Dateline Yang Anda Atur Bisa Berubah Sesuai Kondisi Antrian, Anda Bisa Atur Negosiasi Waktu Dateline Dengan Admin Kami. <b>"Pastikan File Anda Ready / Siap Print"</b>
+      </div>
+
+      <button type="submit">Cek Harga ke Admin Metropolis Print</button>
+    </form>
+  </div>
+
+  <script>
+    function formatTanggalIndo(tanggalInput) {
+      const bulanIndo = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+      const hariIndo = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+      const dateObj = new Date(tanggalInput);
+      const hari = hariIndo[dateObj.getDay()];
+      const tanggal = dateObj.getDate();
+      const bulan = bulanIndo[dateObj.getMonth()];
+      const tahun = dateObj.getFullYear();
+      return `${hari}, ${tanggal} ${bulan} ${tahun}`;
+    }
+
+    function sendToWhatsApp() {
+      const adminWa = "6282335222268";
+      const nama = document.getElementById("nama").value;
+      const nowa = document.getElementById("nowa").value;
+      const jenis = document.getElementById("jenis").value;
+      const jumlah = document.getElementById("jumlah").value;
+      const tanggal = formatTanggalIndo(document.getElementById("tanggal").value);
+      const jam = document.getElementById("jam").value;
+      const catatan = document.getElementById("catatan").value || "-";
+
+      const pesan =
+        `📌 Pemesanan Nomor Rumah Akrilik\n\n` +
+        `👤 Nama: ${nama}\n` +
+        `📱 No. WA: ${nowa}\n` +
+        `🏠 Model: ${jenis}\n` +
+        `📦 Jumlah: ${jumlah}\n` +
+        `🗓️ Tanggal: ${tanggal}\n` +
+        `⏰ Jam: ${jam}\n` +
+        `📝 Catatan: ${catatan}`;
+
+      const url = `https://wa.me/${adminWa}?text=${encodeURIComponent(pesan)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
